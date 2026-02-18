@@ -24,32 +24,32 @@ This project provisions Azure infrastructure using Terraform and automatically i
 ## 🚀 Deployment Steps
 
 ### 1️⃣ Login to Azure CLI
-
 ```bash
 az login
+```
 
-
-
-2. Initialize Terraform
+### 2️⃣ Initialize Terraform
+```bash
 terraform init
+```
 
-
-3. Review Plan
+### 3️⃣ Review Plan
+```bash
 terraform plan
+```
 
-
-4. Apply Configuration
+### 4️⃣ Apply Configuration
+```bash
 terraform apply
+```
 
-
-5. Access NGINX
+### 5️⃣ Access NGINX
 Open the output URL in browser.
 
-## Clean Up
-
+## 🧹 Clean Up
+```bash
 terraform destroy
+```
 
-
----
 
 This is a minor DevOps project demonstrating Terraform-based Azure infrastructure provisioning.
