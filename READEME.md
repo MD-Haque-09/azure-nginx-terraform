@@ -23,28 +23,34 @@ This project provisions Azure infrastructure using Terraform and automatically i
 
 ## 🚀 Deployment Steps
 
+### 1️⃣ Login to Azure CLI
 ```bash
 az login
+```
+
+### 2️⃣ Initialize Terraform
+```bash
 terraform init
+```
+
+### 3️⃣ Review Plan
+```bash
 terraform plan
+```
+
+### 4️⃣ Apply Configuration
+```bash
 terraform apply
 ```
 
-After successful deployment, Terraform will output something like:
-
-```bash
-vm_public_url = "http://20.115.35.158"
-```
-
-Open the output URL in your browser.
-
----
+### 5️⃣ Access NGINX
+Open the output URL in browser.
 
 ## 🧹 Clean Up
-
 ```bash
 terraform destroy
 ```
+
 
 
 
