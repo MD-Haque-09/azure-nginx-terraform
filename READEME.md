@@ -21,10 +21,13 @@ This project provisions Azure infrastructure using Terraform and automatically i
 - Tagged resources
 - Output for public URL
 
-## Deployment Steps
+## 🚀 Deployment Steps
 
-1. Login to Azure CLI
+### 1️⃣ Login to Azure CLI
+
+```bash
 az login
+
 
 
 2. Initialize Terraform
