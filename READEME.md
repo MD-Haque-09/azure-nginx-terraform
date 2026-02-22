@@ -141,7 +141,7 @@ This phase focuses on improving VM-level and infrastructure-level security.
 ### 🔑 SSH Connection
 
 ```bash
-ssh -i azurevmkey adminuser@PUBLIC_IP
+ssh -i <private_key_file> <admin_username>@<public_ip>
 
 Why This Matters
 
