@@ -1,7 +1,7 @@
 resource "azurerm_network_security_group" "mynsg" {
   name                = "my-nsg"
   location            = var.location
-  resource_group_name = var.resource_group
+  resource_group_name = azurerm_resource_group.myrg.name
   tags = {
   environment = "dev"
   project     = "nginx-terraform"
@@ -17,9 +17,9 @@ resource "azurerm_network_security_rule" "myrule" {
   protocol                    = "Tcp"
   source_port_range           = "*"
   destination_port_range      = "80"
-  source_address_prefix       = "*"
+  source_address_prefix       = "223.178.212.166/32"
   destination_address_prefix  = "*"
-  resource_group_name         = var.resource_group
+  resource_group_name         = azurerm_resource_group.myrg.name
   network_security_group_name = azurerm_network_security_group.mynsg.name
 }
 resource "azurerm_network_security_rule" "ssh_rule" {
@@ -30,9 +30,9 @@ resource "azurerm_network_security_rule" "ssh_rule" {
   protocol                    = "Tcp"
   source_port_range           = "*"
   destination_port_range      = "22"
-  source_address_prefix       = "*"
+  source_address_prefix       = "223.178.212.166/32"
   destination_address_prefix  = "*"
-  resource_group_name         = var.resource_group
+  resource_group_name         = azurerm_resource_group.myrg.name
   network_security_group_name = azurerm_network_security_group.mynsg.name
 }
 
@@ -44,7 +44,7 @@ resource "azurerm_subnet_network_security_group_association" "myassociation" {
 resource "azurerm_public_ip" "mypublicip" {
   name                = "my-public-ip"
   location            = var.location
-  resource_group_name = var.resource_group
+  resource_group_name = azurerm_resource_group.myrg.name
   allocation_method   = "Static"
   sku = "Standard"
   tags = {
@@ -57,7 +57,7 @@ resource "azurerm_public_ip" "mypublicip" {
 resource "azurerm_network_interface" "myinterface" {
   name                = "my-network-interface"
   location            = var.location
-  resource_group_name = var.resource_group
+  resource_group_name = azurerm_resource_group.myrg.name
   tags = {
   environment = "dev"
   project     = "nginx-terraform"
