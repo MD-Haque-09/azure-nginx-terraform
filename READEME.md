@@ -114,10 +114,54 @@ Azure Subscription
 
 # 🔐 Phase 3 – Security Hardening (Next)
 
-- Switch to SSH key authentication
-- Restrict SSH to specific IP
-- Remove public SSH exposure
-- Improve NSG rules
+Current Version: Phase 3 – Secure SSH Access Enabled
+
+This phase focuses on improving VM-level and infrastructure-level security.
+
+Security Improvements Implemented
+
+Disabled password-based SSH authentication
+
+Implemented SSH key-based authentication
+
+Restricted SSH (Port 22) access to personal public IP only
+
+Enforced secure SSH configuration
+
+Removed global SSH exposure
+
+What Changed in Infrastructure
+
+Before Phase 3:
+
+Password authentication enabled
+
+Port 22 open to 0.0.0.0/0
+
+After Phase 3:
+
+disable_password_authentication = true
+
+SSH key configured via admin_ssh_key
+
+NSG rule updated to:
+source_address_prefix = "YOUR_PUBLIC_IP/32"
+
+SSH Connection
+
+To connect to the VM:
+
+ssh -i azurevmkey adminuser@PUBLIC_IP
+
+Why This Matters
+
+Reduces brute-force attack risk
+
+Follows cloud security best practices
+
+Implements least privilege access
+
+Aligns with production-grade infrastructure standards
 
 ---
 
