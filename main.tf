@@ -1,8 +1,10 @@
 resource "azurerm_linux_virtual_machine" "myvm" {
-  name                = "my-vm"
+
+  for_each = var.vm_config
+  name                = each.key
   resource_group_name = azurerm_resource_group.myrg.name
   location            = var.location
-  size                = var.vm_size
+  size                = each.value.size
   admin_username      = var.admin_username
   disable_password_authentication = true
   admin_ssh_key {
@@ -11,7 +13,7 @@ resource "azurerm_linux_virtual_machine" "myvm" {
   }
 
   network_interface_ids = [
-    azurerm_network_interface.myinterface.id
+    azurerm_network_interface.myinterface[each.key].id
   ]
   os_disk {
     caching = "ReadWrite"

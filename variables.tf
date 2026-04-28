@@ -28,3 +28,23 @@ variable "vm_size" {
     default     = "Standard_B1s"
   
 }
+
+variable "vm_config" {
+
+    type = map(any)
+
+    default = {
+      
+      vm1 = {
+        size = "Standard_B1s"
+      }
+
+      vm2 = {
+
+        size = "Standard_B1s"
+      }
+    }
+
+ 
+  
+}
